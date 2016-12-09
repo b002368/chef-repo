@@ -1,0 +1,11 @@
+{
+  "name": "node-1",
+  "normal": {
+    "tags": [
+
+    ]
+  },
+  "run_list": [
+    "recipe[my_cookbook]"
+  ]
+}
