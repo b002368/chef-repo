@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .autotest
 coverage
 .DS_Store
@@ -51,3 +52,58 @@ acceptance/bin/*
 vendor/
 acceptance/vendor
 kitchen-tests/vendor
+=======
+.autotest
+coverage
+.DS_Store
+pkg/*
+tags
+*/tags
+*~
+.chef/*.pem
+.chef/encrypted_data_bag_secrete
+
+# You should check in your Gemfile.lock in applications, and not in gems
+external_tests/*.lock
+/Gemfile.local
+
+# ignore some common Bundler 'binstubs' directory names
+# http://gembundler.com/man/bundle-exec.1.html
+b/
+binstubs/
+**/.bundle
+# RVM and RBENV ruby version files
+.rbenv-version
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# IDE files
+.project
+
+# Documentation
+_site/*
+.yardoc/
+doc/
+
+# Test Kitchen
+.kitchen/
+
+# Vagrant
+Vagrantfile
+.vagrant/
+
+# Kitchen Tests Local Mode Data
+kitchen-tests/nodes/*
+
+# Temporary files present during spec runs
+spec/data/test-dir
+/config/
+
+# acceptance binstubs
+acceptance/bin/*
+
+vendor/
+acceptance/vendor
+kitchen-tests/vendor
+>>>>>>> deca7c98ab6173abb0ac3d00ca450b24d1ee113c
