@@ -5,7 +5,8 @@ pkg/*
 tags
 */tags
 *~
-.chef
+.chef/*.pem
+.chef/encrypted_data_bag_secrete
 
 # You should check in your Gemfile.lock in applications, and not in gems
 external_tests/*.lock
