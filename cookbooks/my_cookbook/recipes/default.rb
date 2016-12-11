@@ -7,24 +7,9 @@ include_recipe "chef-client"
 include_recipe "apt"
 include_recipe "ntp"
 
-chef_gem 'ipaddress'
-require 'ipaddress'
+#Chef::Log.info("Netmask of #{ip}:#{mask}")
 
-ip = '10.10.0.0/24' 
-mask = netmask(ip) # here we use the library method
-Chef::Log.info("Netmask of #{ip}:#{mask}")
-
-
-template '/tmp/message' do 
-  source 'message.erb'
-  variables(
-   hi:'Hallo',
-   world: 'Weltt',
-   from: node['fqdn']
-  )
+node.override['my_cookbook']['version'] = '1.5'
+execute 'echo the cookbook version' do
+  command "echo #{node['my_cookbook']['version']}"
 end
-
-capistrano_deploy_dirs do
-  deploy_to "srv"
-end
-
