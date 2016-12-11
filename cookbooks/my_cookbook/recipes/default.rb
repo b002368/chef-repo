@@ -7,6 +7,15 @@ include_recipe "chef-client"
 include_recipe "apt"
 include_recipe "ntp"
 
-message = node['my_cookbook']['message']
-Chef::Log.info("** Saying what I was told to say: #{message}")
+template '/tmp/message' do 
+  source 'message.erb'
+  variables(
+   hi:'Hallo',
+   world: 'Weltt',
+   from: node['fqdn']
+  )
+end
+
+#message = node['my_cookbook']['message']
+#Chef::Log.info("** Saying what I was told to say: #{message}")
 
