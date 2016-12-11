@@ -7,10 +7,6 @@ include_recipe "chef-client"
 include_recipe "apt"
 include_recipe "ntp"
 
-
-node.default['my_cookbook']['greeting'] = "Hello!Me"
-
-template '/tmp/greeting.txt' do
-    variables greeting: node['my_cookbook']['greeting'] 
-end
+message = node['my_cookbook']['message']
+Chef::Log.info("** Saying what I was told to say: #{message}")
 
