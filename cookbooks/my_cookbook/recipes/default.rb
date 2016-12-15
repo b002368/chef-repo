@@ -9,7 +9,17 @@ include_recipe "ntp"
 
 #Chef::Log.info("Netmask of #{ip}:#{mask}")
 
-node.override['my_cookbook']['version'] = '1.5'
-execute 'echo the cookbook version' do
-  command "echo #{node['my_cookbook']['version']}"
+#hook = data_bag_item('hooks','request_bin')
+#http_request 'callback' do
+#  url hook['url']
+#end
+#
+
+http_request 'callbacl' do
+  url node['my_cookbook']['callback']['url']
+  only_if {node['my_cookbook']['callback']['enable'] }
 end
+
+Chef::Log.info("==> Running on RedHat") if
+  node.platform == 'redhat'
+
